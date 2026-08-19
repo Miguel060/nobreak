@@ -1,2 +1,13 @@
 services:
-  
+  nobreak:
+    build:
+      context: .
+      dockerfile: dockerfile
+    container_name: nobreak-app
+    volumes:
+      - ./src:/app/src              
+      - nobreak_data:/app/output
+    environment:
+      - PYTHONUNBUFFERED=1
+volumes:
+  nobreak_data:
